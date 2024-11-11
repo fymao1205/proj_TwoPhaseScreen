@@ -1,5 +1,5 @@
 ## Introduction
-This repository houses the R code used for simulation studies within the project titled “Two-Phase Designs for Evaluating Tests for Cancer Screening and Management.” Inside, a folder labeled utility contains all utility functions. Additionally, there’s a running script named sim_script.R designed for executing simulations.
+This repository houses the R code used for simulation studies within the project titled “Two-Phase Designs for Cost-Effective Evaluation of Triage Tests in Cancer Screening.” Inside, a folder labeled utility contains all utility functions. Additionally, there’s a running script named sim_script.R designed for executing simulations.
 utility
 
 This folder contains:
