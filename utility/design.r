@@ -105,14 +105,25 @@ design_strat.f <- function(n2samp, design="srs", phaseI_strat){
     left <- n2samp - sum_n_circ
     
     while(left >0 ){
+      
       left_bal <- strata.n - n_circ_vec
       add_bal <- numeric(num_strata)
-      for(i in 1:num_strata){
-        div <- sum(left_bal >0)
-        add_bal[i] <- ifelse(left_bal[i] < left/div,left_bal[i],left/div)
+      
+      if(sum(left_bal>0)>left){
+        
+        ind=sample(1:sum(left_bal>0), left)
+        
+        add_bal[left_bal>0][ind]=1
+        
+      }else{
+        for(i in 1:num_strata){
+          div <- sum(left_bal >0)
+          add_bal[i] <- ifelse(left_bal[i] < left/div,left_bal[i], floor(left/div))
+        }
       }
       n_circ_vec <- n_circ_vec + add_bal
       left <- n2samp - sum(n_circ_vec)
+      print(left)
     }
     
     s_bal <- floor(n_circ_vec)
